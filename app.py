@@ -8,11 +8,11 @@ and Word templates. Designed with future cloud storage in mind.
 import io
 import logging
 import os
-import shutil
 import tempfile
 import zipfile
 
 import streamlit as st
+from streamlit_file_browser import st_file_browser
 from elevator_docs_core import APP_NAME, APP_VERSION
 from elevator_docs_core.config import TEMPLATES_DIR, OUTPUT_DIR, LOGS_DIR
 from elevator_docs_core.pipeline import run_pipeline
@@ -46,6 +46,46 @@ def zip_directory(folder_path):
     return buffer
 
 
+def folder_picker(key, label, default_path, help_text=None):
+    """Folder picker using streamlit-file-browser."""
+    
+    if f"{key}_path" not in st.session_state:
+        st.session_state[f"{key}_path"] = default_path
+    
+    col1, col2 = st.columns([3, 1])
+    
+    with col1:
+        new_path = st.text_input(
+            label,
+            value=st.session_state[f"{key}_path"],
+            help=help_text,
+            key=f"{key}_text_input"
+        )
+        if new_path != st.session_state[f"{key}_path"]:
+            st.session_state[f"{key}_path"] = new_path
+    
+    with col2:
+        with st.expander("🌐 Procházet", expanded=False):
+            fs_root = os.path.dirname(st.session_state[f"{key}_path"]) or "."
+            selected = st_file_browser(
+                fs_root,
+                key=f"{key}_browser",
+                show_choose_file=False,
+                show_download_file=False,
+                show_preview=False,
+                show_new_folder=False,
+                show_upload_file=False,
+                show_delete_file=False,
+            )
+            if selected:
+                selected_path = selected.get("fullPath")
+                if selected_path and os.path.isdir(selected_path):
+                    st.session_state[f"{key}_path"] = selected_path
+                    st.rerun()
+    
+    return st.session_state[f"{key}_path"]
+
+
 def main():
     st.title(f"{APP_NAME}")
     st.caption(f"verze {APP_VERSION}")
@@ -72,16 +112,18 @@ def main():
     with col2:
         st.subheader("Nastavení")
         
-        templates_dir = st.text_input(
+        templates_dir = folder_picker(
+            "templates",
             "Složka šablon",
-            value=TEMPLATES_DIR,
-            help="Cesta ke složce s Word šablonami"
+            TEMPLATES_DIR,
+            "Cesta ke složce s Word šablonami"
         )
         
-        output_dir = st.text_input(
+        output_dir = folder_picker(
+            "output",
             "Výstupní složka",
-            value=OUTPUT_DIR,
-            help="Cesta pro vygenerované dokumenty"
+            OUTPUT_DIR,
+            "Cesta pro vygenerované dokumenty"
         )
 
     st.markdown("---")

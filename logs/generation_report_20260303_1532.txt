@@ -1,0 +1,38 @@
+==================================================
+  REPORT GENEROVÁNÍ DOKUMENTŮ
+==================================================
+Datum: 03.03.2026 15:32
+
+Vygenerováno: 14/14 dokumentů
+Celkový čas: 62.0 s
+
+  [OK] 00 - Předávaná dokumentace - seznam.docx (6 proměnných)
+  [OK] 01 - EU Prohlášení o shodě.docx (13 proměnných)
+  [OK] 01 - Záruční list.docx (6 proměnných)
+  [OK] 04 - Technicka zprava.docx (66 proměnných)
+  [OK] 05 - Návod na používání výtahu.docx (9 proměnných)
+  [OK] 06 - Preventivní údržba výtahu.docx (9 proměnných)
+  [OK] 12 - Výpočet výtahu.docx (9 proměnných)
+  [OK] 13 - Certifikáty.docx (9 proměnných)
+  [OK] 26 - Kniha výtahu_podoli.docx (121 proměnných)
+  [OK] Osvědčení obsluhovatelů.docx (4 proměnných)
+  [OK] Osvědčení vyprošťovatelů.docx (4 proměnných)
+  [OK] Předávací protokol strojovna výtahu.docx (6 proměnných)
+  [OK] Předávací protokol.docx (6 proměnných)
+  [OK] Štítky.docx (8 proměnných)
+
+Varování:
+  - 01 - Záruční list.docx: Missing variables: cislo_servisni_smlouvy, datum_pocatku_zaruky
+  - 04 - Technicka zprava.docx: Missing variables: dverni_uzavera_1, dverni_uzavera_2, klecove_dvere_2, nárazníky, prostredi_vytahu_sachta, prostredi_vytahu_strojovna, sirka_dveri_1, sirka_dveri_2, vyska_dveri_1, vyska_dveri_2, šachetní
+  - 26 - Kniha výtahu_podoli.docx: Missing variables: druh_dveri_1, druh_dveri_2, dverni_uzavera_1, dverni_uzavera_2, nárazníky, sirka, sirka_dveri_1, typ_dveri_1, typ_dveri_2, vyska_dveri_1, vyska_dveri_2, vysledek_mereni_obvod_klece_i, vysledek_mereni_obvod_klece_v, vysledek_mereni_svetelne_a_zasuvkove_i, vysledek_mereni_svetelne_a_zasuvkove_v, vysledek_mereni_tlak_jmenoviteho_, vysledek_mereni_zatizeni_
+  - Předávací protokol strojovna výtahu.docx: Missing variables: dnesni_datum
+  - Předávací protokol.docx: Missing variables: dnesni_datum
+  - 01 - Záruční list.docx: chybí proměnné: cislo_servisni_smlouvy, datum_pocatku_zaruky
+  - 04 - Technicka zprava.docx: chybí proměnné: dverni_uzavera_1, dverni_uzavera_2, klecove_dvere_2, nárazníky, prostredi_vytahu_sachta, prostredi_vytahu_strojovna, sirka_dveri_1, sirka_dveri_2, vyska_dveri_1, vyska_dveri_2, šachetní
+  - 26 - Kniha výtahu_podoli.docx: chybí proměnné: druh_dveri_1, druh_dveri_2, dverni_uzavera_1, dverni_uzavera_2, nárazníky, sirka, sirka_dveri_1, typ_dveri_1, typ_dveri_2, vyska_dveri_1, vyska_dveri_2, vysledek_mereni_obvod_klece_i, vysledek_mereni_obvod_klece_v, vysledek_mereni_svetelne_a_zasuvkove_i, vysledek_mereni_svetelne_a_zasuvkove_v, vysledek_mereni_tlak_jmenoviteho_, vysledek_mereni_zatizeni_
+  - Předávací protokol strojovna výtahu.docx: chybí proměnné: dnesni_datum
+  - Předávací protokol.docx: chybí proměnné: dnesni_datum
+
+==================================================
+  KONEC REPORTU
+==================================================
