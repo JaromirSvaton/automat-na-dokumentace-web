@@ -3,4 +3,3 @@ Authlib>=1.3.2
 google-api-python-client
 google-auth
 google-auth-httplib2
-elevator-docs-core
