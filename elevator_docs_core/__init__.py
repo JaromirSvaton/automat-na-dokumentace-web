@@ -5,8 +5,8 @@ A reusable Python package containing all core logic for generating
 elevator documentation from Excel data and Word templates.
 """
 
-from elevator_docs_core.config import APP_NAME, APP_VERSION
-from elevator_docs_core.pipeline import run_pipeline
+from .config import APP_NAME, APP_VERSION
+from .pipeline import run_pipeline
 
 __version__ = APP_VERSION
 
