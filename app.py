@@ -73,6 +73,20 @@ def cleanup_temp_dirs(*dirs):
                 logger.warning(f"Failed to clean up {d}: {e}")
 
 
+def cleanup_temp_file(path):
+    """Delete a temporary file if it exists.
+    
+    Args:
+        path: Path to the file to delete.
+    """
+    if path and os.path.exists(path):
+        try:
+            os.remove(path)
+            logger.info(f"Cleaned up temp file: {path}")
+        except Exception as e:
+            logger.warning(f"Failed to clean up temp file {path}: {e}")
+
+
 def _has_auth_config():
     """Return True if Google OAuth secrets are configured."""
     try:
@@ -686,9 +700,6 @@ def main():
                         mime="application/zip",
                     )
 
-                    # Cleanup temp dirs after ZIP is created (keep logs)
-                    cleanup_temp_dirs(templates_tmpdir, converted_tmpdir, output_tmpdir)
-
                 with st.expander("Zobrazit report"):
                     st.text(result.get("report_text", ""))
 
@@ -696,6 +707,10 @@ def main():
                 progress_placeholder.empty()
                 st.error(f"Došlo k chybě: {exc}")
                 logger.exception("Pipeline error in web app")
+
+            finally:
+                # Always cleanup temp dirs (keep zakazka and pravidla for debugging)
+                cleanup_temp_dirs(templates_tmpdir, converted_tmpdir, output_tmpdir)
 
 
 if __name__ == "__main__":

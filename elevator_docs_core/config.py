@@ -9,11 +9,11 @@ and supported operators for the document generation pipeline.
 # EXCEL SHEET NAMES
 # ============================================================================
 
-# Order data sheet (zakazka.xlsx)
-ZAKAZKA_SHEET_NAME = "Šablona (Prázdná)"
+# Order data sheet (zakazka.xlsx) - use index 0 for reliability across systems
+ZAKAZKA_SHEET_INDEX = 0
 
-# Rules data sheet (Pravidla.xlsx)
-PRAVIDLA_SHEET_NAME = "List1"
+# Rules data sheet (Pravidla.xlsx) - use index 0 for reliability across systems
+PRAVIDLA_SHEET_INDEX = 0
 
 
 # ============================================================================

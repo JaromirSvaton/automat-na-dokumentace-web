@@ -12,11 +12,11 @@ import pandas as pd
 
 from elevator_docs_core.config import (
     PRAVIDLA_COLS,
-    PRAVIDLA_SHEET_NAME,
+    PRAVIDLA_SHEET_INDEX,
     SUPPORTED_OPERATORS,
     VALUE_COL,
     VARIABLE_COL,
-    ZAKAZKA_SHEET_NAME,
+    ZAKAZKA_SHEET_INDEX,
 )
 from elevator_docs_core.normalizer import normalize_variable_name
 
@@ -83,7 +83,7 @@ def read_order_data(filepath):
     # Read with openpyxl to preserve original types (don't use dtype=str)
     df = pd.read_excel(
         filepath,
-        sheet_name=ZAKAZKA_SHEET_NAME,
+        sheet_name=ZAKAZKA_SHEET_INDEX,
         engine="openpyxl",
         header=None,  # No header row processing - we handle it manually
     )
@@ -158,7 +158,7 @@ def read_rules(filepath):
 
     df = pd.read_excel(
         filepath,
-        sheet_name=PRAVIDLA_SHEET_NAME,
+        sheet_name=PRAVIDLA_SHEET_INDEX,
         engine="openpyxl",
         header=None,
     )
