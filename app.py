@@ -112,6 +112,17 @@ def _get_access_token():
         return None
 
 
+def _get_drive_folder_url():
+    """Return the Drive folder URL from secrets, or None if not configured."""
+    try:
+        folder_id = st.secrets.get("drive", {}).get("main_folder_id")
+        if folder_id:
+            return f"https://drive.google.com/drive/folders/{folder_id}"
+    except Exception:
+        pass
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Google Drive file browser (search + folder navigation)
 # ---------------------------------------------------------------------------
@@ -402,6 +413,13 @@ def render_sidebar():
         if auth_available:
             if _is_logged_in():
                 st.success(f"Přihlášen: {st.user.email}")
+                
+                folder_url = _get_drive_folder_url()
+                if folder_url:
+                    st.markdown("---")
+                    st.markdown("**📁 Sdílená složka**")
+                    st.link_button("Otevřít složku se šablonami", folder_url)
+                
                 if st.button("Odhlásit se"):
                     st.logout()
                     st.rerun()
