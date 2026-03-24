@@ -409,7 +409,6 @@ def render_sidebar():
                 st.info("Pro přístup ke Google Drive se přihlaste.")
                 if st.button("Přihlásit se přes Google"):
                     st.login()
-                    st.rerun()
         else:
             st.caption(
                 "Google Drive není nakonfigurován. "
